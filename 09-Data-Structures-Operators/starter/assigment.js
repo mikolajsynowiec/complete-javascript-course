@@ -481,9 +481,13 @@ const books = [
 
 // if (bookMap.has('author')) console.log('The author is known');
 
-const firstBookMap = new Map(Object.entries(books[0]));
-// console.log(firstBookMap);
+// const firstBookMap = new Map(Object.entries(books[0]));
+// // console.log(firstBookMap);
 
-for (const [key, value] of firstBookMap) {
-  if (typeof value === 'number') console.log(key, value);
-}
+// for (const [key, value] of firstBookMap) {
+//   if (typeof value === 'number') console.log(key, value);
+// }
+
+const str = books[0].ISBN;
+
+console.log(str['5'], str['2']);

@@ -488,12 +488,22 @@ const books = [
 //   if (typeof value === 'number') console.log(key, value);
 // }
 
-const str = books[0].ISBN;
+// const str = books[0].ISBN;
 
-console.log(str['5'], str['2']);
+// console.log(str['5'], str['2']);
 
-const quote =
-  'A computer once beat me at chess, but it was no match for me at kick boxing';
+// const quote =
+//   'A computer once beat me at chess, but it was no match for me at kick boxing';
 
-// console.log(quote.indexOf('chess'));
-console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+// // console.log(quote.indexOf('chess'));
+// console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+
+const normalizeAuthorName = function (firstName, lastName) {
+  const lowerFirstName = firstName.toLocaleLowerCase();
+  const lowerLastName = lastName.toLocaleLowerCase();
+  const correctedFirstName =
+    lowerFirstName[0].toLocaleUpperCase() + lowerFirstName.slice(1);
+  const correctedLastName =
+    lowerLastName[0].toLocaleUpperCase() + lowerLastName.slice(1);
+  console.log(`${correctedFirstName} ${correctedLastName}`);
+};

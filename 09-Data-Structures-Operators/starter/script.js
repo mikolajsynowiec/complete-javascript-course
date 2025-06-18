@@ -49,7 +49,80 @@ const restaurant = {
 //Strings
 
 const airline = 'Tap Air Portugal';
-const plane = 'A320';
+// const plane = 'A320';
+
+console.log(airline.toLocaleLowerCase());
+console.log(airline.toLocaleUpperCase());
+//Fix capitalization in name
+// const passegngerName = 'mIKO';
+// const passegnerLower = passegngerName.toLocaleLowerCase();
+// const passengerCorrect =
+//   passegnerLower[0].toLocaleUpperCase() + passegnerLower.slice(1);
+// console.log(passengerCorrect);
+
+// const correctPassengerName = function (name) {
+//   const lowerName = name.toLocaleLowerCase();
+//   const correctName = lowerName[0].toLocaleUpperCase() + lowerName.slice(1);
+//   console.log(correctName);
+// };
+
+// correctPassengerName('MiKoLAj');
+
+// //Compare emails
+
+// const email = 'hello@miko.com';
+// const loginEmail = '  Hello@miko.com';
+
+// const compareEmail = function (email) {
+//   const lowerEmail = email.toLocaleLowerCase();
+//   const trimmedEmal = lowerEmail.trim();
+//   console.log(trimmedEmal);
+// };
+
+// compareEmail(email);
+
+// const normalizedEmail = loginEmail.toLocaleLowerCase().trim();
+// console.log(normalizedEmail);
+
+//replacing
+const priceGB = '288,79!';
+const priceUS = priceGB.replace('!', '$').replace(',', '.');
+console.log(priceUS);
+
+const annoncement = 'Chuj ci w dupe dupe';
+console.log(annoncement.replaceAll('dupe', 'pizde'));
+
+console.log(annoncement.replace(/dupe/g, 'cipe'));
+
+//Boleans
+// const plane = 'Airbus A320neo';
+const plane = 'cipka Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('A'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the new Airbus Family');
+} else {
+  console.log('Some old fucking plane');
+}
+
+//Practice exercise
+
+const checkBaggage = function (items) {
+  const newItems = items.toLocaleLowerCase();
+  if (newItems.includes('knife') || newItems.includes('gun')) {
+    console.log(
+      'You are not allowed to get to that plane and getting deported'
+    );
+  } else {
+    console.log('Have a good flight');
+  }
+};
+
+checkBaggage('I have a laptop');
+checkBaggage('I have a gun');
+checkBaggage('i have a pocket Knife');
 
 // console.log(plane[0]);
 

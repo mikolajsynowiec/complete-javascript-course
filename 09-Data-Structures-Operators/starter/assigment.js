@@ -491,3 +491,9 @@ const books = [
 const str = books[0].ISBN;
 
 console.log(str['5'], str['2']);
+
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+
+// console.log(quote.indexOf('chess'));
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));

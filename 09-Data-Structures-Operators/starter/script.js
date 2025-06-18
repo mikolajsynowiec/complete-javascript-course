@@ -51,39 +51,41 @@ const restaurant = {
 const airline = 'Tap Air Portugal';
 const plane = 'A320';
 
-console.log(plane[0]);
+// console.log(plane[0]);
 
-console.log(airline.length);
+// console.log(airline.length);
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Portugal'));
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
 
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -1));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
 
-const checkMiddleSeat = function (seat) {
-  if (seat[2] === 'B' || seat[2] === 'E') {
-    console.log('Middle seat!');
-  } else if (seat[2] === 'A' || seat[2] === 'D') {
-    console.log('Exit seat');
-  } else if (seat[2] === 'C' || seat[2] === 'F') {
-    console.log('Window Seat!');
-  }
-};
+// const checkMiddleSeat = function (seat) {
+//   if (seat[2] === 'B' || seat[2] === 'E') {
+//     console.log('Middle seat!');
+//   } else if (seat[2] === 'A' || seat[2] === 'D') {
+//     console.log('Exit seat');
+//   } else if (seat[2] === 'C' || seat[2] === 'F') {
+//     console.log('Window Seat!');
+//   }
+// };
 
-checkMiddleSeat('25A');
-checkMiddleSeat('44B');
-checkMiddleSeat('25C');
-checkMiddleSeat('25D');
-checkMiddleSeat('44E');
-checkMiddleSeat('25F');
+// checkMiddleSeat('25A');
+// checkMiddleSeat('44B');
+// checkMiddleSeat('25C');
+// checkMiddleSeat('25D');
+// checkMiddleSeat('44E');
+// checkMiddleSeat('25F');
+
+// console.log(airline.indexOf('Portugal'));
 //////////////////////////////////////////////////////
 //Maps
 

@@ -48,12 +48,20 @@ const restaurant = {
 /////////////////////////////////////////////////
 //Strings
 
-const airline = 'Tap Air Portugal';
-// const plane = 'A320';
+// console.log('a+very+nice+string'.split('+'));
+// console.log('mikolaj synowiec '.split(''));
 
-console.log(airline.toLocaleLowerCase());
-console.log(airline.toLocaleUpperCase());
-//Fix capitalization in name
+const [firstName, lastName] = 'mikolaj synowiec'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+// const airline = 'Tap Air Portugal';
+// // const plane = 'A320';
+
+// console.log(airline.toLocaleLowerCase());
+// console.log(airline.toLocaleUpperCase());
+// //Fix capitalization in name
 // const passegngerName = 'mIKO';
 // const passegnerLower = passegngerName.toLocaleLowerCase();
 // const passengerCorrect =
@@ -85,44 +93,44 @@ console.log(airline.toLocaleUpperCase());
 // console.log(normalizedEmail);
 
 //replacing
-const priceGB = '288,79!';
-const priceUS = priceGB.replace('!', '$').replace(',', '.');
-console.log(priceUS);
+// const priceGB = '288,79!';
+// const priceUS = priceGB.replace('!', '$').replace(',', '.');
+// console.log(priceUS);
 
-const annoncement = 'Chuj ci w dupe dupe';
-console.log(annoncement.replaceAll('dupe', 'pizde'));
+// const annoncement = 'Chuj ci w dupe dupe';
+// console.log(annoncement.replaceAll('dupe', 'pizde'));
 
-console.log(annoncement.replace(/dupe/g, 'cipe'));
+// console.log(annoncement.replace(/dupe/g, 'cipe'));
 
-//Boleans
-// const plane = 'Airbus A320neo';
-const plane = 'cipka Airbus A320neo';
-console.log(plane.includes('A320'));
-console.log(plane.includes('Boeing'));
-console.log(plane.startsWith('A'));
+// //Boleans
+// // const plane = 'Airbus A320neo';
+// const plane = 'cipka Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('A'));
 
-if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
-  console.log('Part of the new Airbus Family');
-} else {
-  console.log('Some old fucking plane');
-}
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the new Airbus Family');
+// } else {
+//   console.log('Some old fucking plane');
+// }
 
-//Practice exercise
+// //Practice exercise
 
-const checkBaggage = function (items) {
-  const newItems = items.toLocaleLowerCase();
-  if (newItems.includes('knife') || newItems.includes('gun')) {
-    console.log(
-      'You are not allowed to get to that plane and getting deported'
-    );
-  } else {
-    console.log('Have a good flight');
-  }
-};
+// const checkBaggage = function (items) {
+//   const newItems = items.toLocaleLowerCase();
+//   if (newItems.includes('knife') || newItems.includes('gun')) {
+//     console.log(
+//       'You are not allowed to get to that plane and getting deported'
+//     );
+//   } else {
+//     console.log('Have a good flight');
+//   }
+// };
 
-checkBaggage('I have a laptop');
-checkBaggage('I have a gun');
-checkBaggage('i have a pocket Knife');
+// checkBaggage('I have a laptop');
+// checkBaggage('I have a gun');
+// checkBaggage('i have a pocket Knife');
 
 // console.log(plane[0]);
 

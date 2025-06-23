@@ -48,14 +48,23 @@ const restaurant = {
 /////////////////////////////////////////////////
 //Strings
 
-// console.log('a+very+nice+string'.split('+'));
-// console.log('mikolaj synowiec '.split(''));
+console.log('a+very+nice+string'.split('+'));
+console.log('mikolaj synowiec '.split(''));
 
 const [firstName, lastName] = 'mikolaj synowiec'.split(' ');
 
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
 
+const capitalizeName = function (name) {
+  const names = name.split('');
+  const namesUpper = [];
+  for (const n of names) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(namesUpper.join(''));
+};
+capitalizeName('Mikolaj chuj synowiec');
 // const airline = 'Tap Air Portugal';
 // // const plane = 'A320';
 

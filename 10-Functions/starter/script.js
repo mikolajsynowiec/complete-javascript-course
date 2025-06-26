@@ -145,3 +145,12 @@ const flightData = [584, 'Miko syn'];
 
 book.call(AirMiko, ...flightData);
 console.log(AirMiko);
+////////////////////
+//Bind Method
+
+const bookAS = book.bind(AirMiko);
+const bookAM = book.bind(AirMiko);
+
+const bookAS23 = book.bind(AirMiko, 23);
+
+bookAS23('Miko cipa');

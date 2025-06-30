@@ -28,11 +28,25 @@ BONUS: Use the 'displayResults' method to display the 2 arrays in the test data.
 BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]*/
 
-const registerNewAnswer = function (answer) {
-  console.log(
-    'What is your favourite programming language? A - JS B- Python C-Rust D - C++'
-  );
-  console.log(answer);
+const poll = {
+  question: 'What is your vafourite programming language?',
+  options: ['0: JS', '1: Python', '2: Rust', '3: c++'],
+
+  answers: new Array(4).fill(0),
+
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}
+      \n(Write option number)`
+      )
+    );
+
+    console.log(answer);
+
+    typeof answer === 'number' && answer < this.answers.length;
+    answers.length && this.answer[this.answers];
+  },
 };
 
-registerNewAnswer;
+poll.registerNewAnswer();

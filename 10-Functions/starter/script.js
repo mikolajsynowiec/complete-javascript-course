@@ -2,7 +2,7 @@
 ///////////////////////////////////////
 //Default Parameters
 
-const bookings = [];
+// const bookings = [];
 
 // //Es5
 // const createBooking = function (flightNum, numPassengers, price) {
@@ -128,67 +128,99 @@ const bookings = [];
 
 // fillCup('tea')('coffe');
 
-const mikoAir = {
-  airline: 'MikoAir',
-  iataCode: 'MA',
-  bookings: [],
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-    );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-  },
-};
+// const mikoAir = {
+//   airline: 'MikoAir',
+//   iataCode: 'MA',
+//   bookings: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   },
+// };
 
-mikoAir.book(123, 'Mikolaj Synowiec');
+// mikoAir.book(123, 'Mikolaj Synowiec');
 
-const synekAir = {
-  airline: 'synekAir',
-  iataCode: 'SA',
-  bookings: [],
-};
+// const synekAir = {
+//   airline: 'synekAir',
+//   iataCode: 'SA',
+//   bookings: [],
+// };
 
-const book = mikoAir.book;
+// const book = mikoAir.book;
 
-book.call(synekAir, 23, 'Mikolaj synowiec');
+// book.call(synekAir, 23, 'Mikolaj synowiec');
 
-//Bind Method
-const bookSA = book.bind(synekAir);
-const bookMA = book.bind(mikoAir);
+// //Bind Method
+// const bookSA = book.bind(synekAir);
+// const bookMA = book.bind(mikoAir);
 
-bookSA(23, 'Mikolaj s');
+// bookSA(23, 'Mikolaj s');
 
-const bookSA23 = book.bind(synekAir, 23);
+// const bookSA23 = book.bind(synekAir, 23);
 
-bookSA23('Mikolaj Synowiec');
+// bookSA23('Mikolaj Synowiec');
 
-mikoAir.planes = 300;
-mikoAir.buyPlane = function () {
-  this.planes++;
-  console.log(this.planes);
-};
+// mikoAir.planes = 300;
+// mikoAir.buyPlane = function () {
+//   this.planes++;
+//   console.log(this.planes);
+// };
 
-document
-  .querySelector('.buy')
-  .addEventListener('click', mikoAir.buyPlane.bind(mikoAir));
+// document
+//   .querySelector('.buy')
+//   .addEventListener('click', mikoAir.buyPlane.bind(mikoAir));
 
-//Partial application
+// //Partial application
 
-// const addtax = (rate, value) => value + value * rate;
-// console.log(addtax(0.1, 200));
+// // const addtax = (rate, value) => value + value * rate;
+// // console.log(addtax(0.1, 200));
 
-// const addVAT = addtax.bind(null, 0.23);
+// // const addVAT = addtax.bind(null, 0.23);
 
-// console.log(addVAT(1000));
+// // console.log(addVAT(1000));
 
-const addTax = function (rate, value) {
-  const afterRate = value + value * rate;
+// const addTax = function (rate, value) {
+//   const afterRate = value + value * rate;
 
-  return function (vat = value * 0.23) {
-    const afterVAT = afterRate + vat;
-    console.log(`After VAT: ${afterVAT}`);
-    return afterVAT;
+//   return function (vat = value * 0.23) {
+//     const afterVAT = afterRate + vat;
+//     console.log(`After VAT: ${afterVAT}`);
+//     return afterVAT;
+//   };
+// };
+
+// addTax(0.1, 200)(100);
+
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+
+// runOnce();
+
+// //IIFE
+// (function () {
+//   console.log('This will vener run again');
+//   const isPrivate = 23;
+// })();
+
+// () => console.log('This will also never run again')();
+
+// {
+//   const isPrivate = 23;
+// }
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
   };
 };
 
-addTax(0.1, 200)(100);
+const booker = secureBooking();
+
+booker();
+booker();

@@ -1,156 +1,194 @@
 'use strict';
 ///////////////////////////////////////
 //Default Parameters
-// const bookings = [];
+
+const bookings = [];
+
+// //Es5
+// const createBooking = function (flightNum, numPassengers, price) {
+//   numPassengers = numPassengers || 1;
+//   price = price || 199;
+//   const booking = {
+//     flightNum,
+//     numPassengers,
+//     price,
+//   };
 
 // const createBooking = function (
 //   flightNum,
 //   numPassengers = 1,
-//   price = 100 * numPassengers
+//   price = 200 * numPassengers
 // ) {
 //   const booking = {
 //     flightNum,
 //     numPassengers,
 //     price,
 //   };
+
 //   console.log(booking);
 //   bookings.push(booking);
 // };
 
-// createBooking('A12', 6);
+// // createBooking('A12', undefined, 22);
 
-//////////////////////////////////////
-//Passing Aguments: vlau vs reference
+// ////////////////////////////////////
+// //Passing Arguments to functions
 
 // const flight = 'A12';
 // const miko = {
-//   name: 'Miko syn',
+//   name: 'Mikolaj Synowiec',
 //   passport: 123456789,
 // };
 
 // const checkIn = function (flightNum, passenger) {
-//   flightNum = 'A123';
+//   flightNum = 'A33';
 //   passenger.name = 'Mr. ' + passenger.name;
 
 //   if (passenger.passport === 123456789) {
-//     alert('check in');
+//     alert('Check in');
 //   } else {
-//     alert('Wrong passport');
+//     alert('Wrong Passport');
 //   }
 // };
 
+// const newPassport = function (person) {
+//   person.passport = +1;
+// };
+// newPassport(miko);
 // checkIn(flight, miko);
-// console.log(flight);
-// console.log(miko);
 
-// //////////////////////////////////////
-// //First-Class and Higher-Order Functions
+/////////////////////////////
+// //Hiher order functions
+
 // const oneWord = function (str) {
-//   return str.replace(/ /g, '').toLowerCase();
+//   const newStr = str.replace(/ /g, '').toLowerCase();
+//   return newStr;
 // };
 
 // const upperFirstWord = function (str) {
-//   const [first, ...others] = str.split(' ');
-//   return [first.toUpperCase(), ...others].join(' ');
+//   const [first, ...other] = str.split(' ');
+//   return [first.toUpperCase(), ...other].join(' ');
 // };
 
-// //Higer order function
+// console.log(upperFirstWord('Java script sucks!'));
+
 // const transformer = function (str, fn) {
-//   console.log(`Original string: ${str}`);
+//   console.log(`Original string" ${str}`);
 //   console.log(`Transformed string: ${fn(str)}`);
-//   console.log(`Transformed by: ${fn.name}`);
-// };
-// transformer('JavaScript is the best!', upperFirstWord);
-
-// const changToCapital = function (str) {
-//   const capitalWord = str.toUpperCase();
-//   return capitalWord;
 // };
 
-// const transformer2 = function (str, fn) {
-//   console.log(`original string: ${str}`);
-//   console.log(`transformed string: ${fn(str)}`);
-//   console.log(`transformed by ${fn.name}`);
-// };
+// transformer('Java script sucks!', upperFirstWord);
+// transformer('Cipa Chuj', oneWord);
 
-// transformer2('MikolajSynowiec', changToCapital);
-// transformer('Mikolaj Synowiec', oneWord);
-
-// //Js uses callbacks all the time
 // const high5 = function () {
-//   console.log('piatka');
+//   console.log('Piona chuju');
 // };
+
 // document.body.addEventListener('click', high5);
 
-// ['miko', 'chuj', 'cipa'].forEach(high5);
+// // ['Miko', 'Jan', 'Adam'].forEach(high5);
 
-// //functions returning functions
+// const planeTicket = [];
+
+// const mikosPlaneTicket = function (
+//   firstName = 'miko',
+//   lastName = 'syn',
+//   ticketNumber = 'A12'
+// ) {
+//   const mikosTicket = {
+//     firstName,
+//     lastName,
+//     ticketNumber,
+//   };
+//   planeTicket.push(mikosTicket);
+//   console.log(planeTicket);
+// };
+
+// document.body.addEventListener('click', mikosPlaneTicket);
+
 // const greet = function (greeting) {
 //   return function (name) {
 //     console.log(`${greeting} ${name}`);
 //   };
 // };
 
-// // const greeterHey = greet('czesc chuju');
+// const greeterHey = greet('hey');
 
-// // greeterHey('Miko');
+// greeterHey('Miko');
+// greeterHey('Steven');
 
-// // greet('siema')('Miko');
+// greet('Hello')('Miko');
 
-// //Arrow functions
+// const fillCup = function (liquid) {
+//   console.log(`Cup filled with ${liquid}`);
+//   return function (toOrder) {
+//     console.log(`There is no more ${liquid}, ${toOrder} was order`);
+//   };
+// };
 
-// const greetArr = greeting => name => console.log(`${greeting} ${name}`);
-// greetArr('czesc')('cipko');
-/////////////////////////////////////
-//Call and Applay method
+// fillCup('tea')('coffe');
 
-const book = function (flightNum, name) {
-  this.bookings.push({ flight: `${this.iataCode}${flightNum}, name` });
-  console.log(
-    `${name} booked a seat on ${this.airlane} flight ${this.iataCode}${flightNum}`
-  );
-};
-
-const AirSynek = {
-  airlane: 'AirSynek',
-  iataCode: 'AS',
+const mikoAir = {
+  airline: 'MikoAir',
+  iataCode: 'MA',
   bookings: [],
-  // book,
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
 };
 
-const AirMiko = {
-  airlane: 'AirMiko',
-  iataCode: 'AM',
+mikoAir.book(123, 'Mikolaj Synowiec');
+
+const synekAir = {
+  airline: 'synekAir',
+  iataCode: 'SA',
   bookings: [],
-  // book,
 };
 
-// AirSynek.book(234, 'Miko synow');
-// AirSynek.book(123, 'chuj chuj');
-// AirMiko.book(456, 'miko john');
-// AirMiko.book(1233, 'george george');
+const book = mikoAir.book;
 
-// console.log(AirSynek.bookings);
-// console.log(AirMiko.bookings);
+book.call(synekAir, 23, 'Mikolaj synowiec');
 
-book.call(AirMiko, 23, 'Mikolaj Synowiec');
-console.log(AirMiko);
-
-//Applay method
-
-const flightData = [584, 'Miko syn'];
-
-// book.apply(AirMiko, flightData);
-// console.log(AirMiko);
-
-book.call(AirMiko, ...flightData);
-console.log(AirMiko);
-////////////////////
 //Bind Method
+const bookSA = book.bind(synekAir);
+const bookMA = book.bind(mikoAir);
 
-const bookAS = book.bind(AirMiko);
-const bookAM = book.bind(AirMiko);
+bookSA(23, 'Mikolaj s');
 
-const bookAS23 = book.bind(AirMiko, 23);
+const bookSA23 = book.bind(synekAir, 23);
 
-bookAS23('Miko cipa');
+bookSA23('Mikolaj Synowiec');
+
+mikoAir.planes = 300;
+mikoAir.buyPlane = function () {
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', mikoAir.buyPlane.bind(mikoAir));
+
+//Partial application
+
+// const addtax = (rate, value) => value + value * rate;
+// console.log(addtax(0.1, 200));
+
+// const addVAT = addtax.bind(null, 0.23);
+
+// console.log(addVAT(1000));
+
+const addTax = function (rate, value) {
+  const afterRate = value + value * rate;
+
+  return function (vat = value * 0.23) {
+    const afterVAT = afterRate + vat;
+    console.log(`After VAT: ${afterVAT}`);
+    return afterVAT;
+  };
+};
+
+addTax(0.1, 200)(100);

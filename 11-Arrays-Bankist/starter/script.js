@@ -7,8 +7,6 @@
 /////////////////////////////////////////////////
 // LECTURES
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 //Simply Array Methods
 // let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
@@ -84,30 +82,118 @@
 //   console.log(`Number nr. ${i}:  ${mov} in ${arr}`);
 // });
 
-//Map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// //Map
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(value, key);
+// currencies.forEach(function (value, key, map) {
+//   console.log(value, key);
+// });
+
+// //Set
+
+// const currenciesUnique = new Set([
+//   'USD',
+//   'CAD',
+//   'PLN',
+//   'KOR',
+//   'EUR',
+//   'GBP',
+//   'CAD',
+//   'EUR',
+// ]);
+// // console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   // console.log(value, map);
+// });
+
+///////////////////////////////////////////
+//The Map Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const euroToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * euroToUsd;
 });
 
-//Set
+// const movementsUSDfor = [];
+// for (const mov of movements) movementsUSDfor.push(mov * euroToUsd);
 
-const currenciesUnique = new Set([
-  'USD',
-  'CAD',
-  'PLN',
-  'KOR',
-  'EUR',
-  'GBP',
-  'CAD',
-  'EUR',
-]);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (value, _, map) {
-  console.log(value, map);
-});
+//Arrow function
+
+// const movementUSDarrow = movements.map(mov => mov * euroToUsd);
+
+// console.log(movementUSDarrow);
+
+// const movementsDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'}  ${Math.abs(
+//       mov
+//     )}`
+// );
+
+// console.log(movementsDescriptions);
+
+// const multiplyTwoNumbers = function (x, y) {
+//   return x * y;
+// };
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+// numbers.forEach((mov, i) => {
+//   mov === 1 ? console.log('one') : console.log('cipa');
+// });
+
+/////////////////////////////////////////////////
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+  type: 'premium',
+};
+
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+  type: 'standard',
+};
+
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+  type: 'premium',
+};
+
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+  type: 'basic',
+};
+
+const accounts = [account1, account2, account3, account4];
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLocaleLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);

@@ -261,22 +261,83 @@ const accounts = [account1, account2, account3, account4];
 // const anyDeposits = movements.some(mov => mov > 50000);
 // console.log(anyDeposits);
 
-const everyDeposit = movements.every(mov => mov > 0);
-console.log(everyDeposit);
+// const everyDeposit = movements.every(mov => mov > 0);
+// console.log(everyDeposit);
 
-const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
-console.log(arr.flat());
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
 
-const overalBalance = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, mov) => acc + mov, 0);
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overalBalance);
+// console.log(overalBalance);
 
-const overalBalance2 = accounts
-  .flatMap(acc => acc.movements)
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements)
 
-  .reduce((acc, mov) => acc + mov, 0);
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overalBalance2);
+// console.log(overalBalance2);
+
+// const owners = ['Miko', 'Jan', 'szymon'];
+// console.log(owners.sort());
+
+// console.log(movements.sort());
+
+// // movements.sort((a, b) => {
+// //   if (a > b) return 1;
+// //   if (a < b) return -1;
+// // });
+
+// // console.log(movements);
+
+// movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// movements.sort((a, b) => a + b);
+// console.log(movements);
+
+// console.log(movements);
+
+// const groupedMovements = Object.groupBy(movements, mov =>
+//   mov > 0 ? 'deposits' : 'witdrawals'
+// );
+
+// console.log(groupedMovements);
+
+// const groupdAccounts = Object.groupBy(accounts, chuj => chuj.type);
+
+// console.log(groupdAccounts);
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(arr);
+// const x = new Array(7);
+// console.log(x);
+
+// x.fill(1, 3, 5);
+// console.log(x);
+
+// arr.fill(23, 4, 6);
+// console.log(arr);
+
+// const y = Array.from({ length: 100 }, () => {
+//   return Math.floor(Math.random() * 100) + 1;
+// });
+// console.log(y);
+
+console.log(movements);
+const reversed = movements.slice().reverse();
+console.log(reversed);
+console.log(movements);
+
+const reversedMov = movements.toReversed();
+console.log(reversedMov);
+
+// movements[1] = 2000;
+// console.log(movements);
+
+const newMovements = movements.with(1, 300);
+console.log(movements);
+console.log(newMovements);

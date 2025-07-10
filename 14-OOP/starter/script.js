@@ -43,3 +43,40 @@
 // };
 
 // console.log(arr.unique());
+// class PersonCl {
+//   constructor(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   }
+
+//   calcAge() {
+//     console.log(2025 - this.birthYear);
+//   }
+// }
+
+// const miko = new PersonCl('miko', 2002);
+// console.log(miko);
+
+// miko.calcAge();
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+// miko.greet();
+
+const account = {
+  owner: 'miko',
+  movements: [200, 300, 400, 500],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest);
+account.latest = 50;
+console.log(account.movements);

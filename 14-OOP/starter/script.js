@@ -1,10 +1,6 @@
 'use strict';
 ////////////////////////////
 //Constructor functions
-// const Person = function (firstName, birthYear) {
-//   this.firstName = firstName;
-//   this.birthYear = birthYear;
-// };
 
 // const miko = new Person('Miko', 2002);
 
@@ -43,40 +39,88 @@
 // };
 
 // console.log(arr.unique());
-// class PersonCl {
-//   constructor(firstName, birthYear) {
-//     this.firstName = firstName;
-//     this.birthYear = birthYear;
-//   }
-
-//   calcAge() {
-//     console.log(2025 - this.birthYear);
-//   }
-// }
-
-// const miko = new PersonCl('miko', 2002);
-// console.log(miko);
 
 // miko.calcAge();
 
-// PersonCl.prototype.greet = function () {
-//   console.log(`Hey ${this.firstName}`);
-// };
-
 // miko.greet();
 
-const account = {
-  owner: 'miko',
-  movements: [200, 300, 400, 500],
+// const account = {
+//   owner: 'miko',
+//   movements: [200, 300, 400, 500],
 
-  get latest() {
-    return this.movements.slice(-1).pop();
+//   get latest() {
+//     return this.movements.slice(-1).pop();
+//   },
+//   set latest(mov) {
+//     this.movements.push(mov);
+//   },
+// };
+
+// console.log(account.latest);
+// account.latest = 50;
+// console.log(account.movements);
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2025 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+
+  get age() {
+    return 2025 - this.birthYear;
+  }
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('hey there');
+  }
+}
+
+// const walter = new PersonCl('walt', 1111);
+
+// const miko = new PersonCl('miko syn', 2002);
+// // console.log(miko);
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.hey = function () {
+  console.log('Hey there');
+};
+
+Person.hey();
+
+PersonCl.hey();
+
+const PersonProto = {
+  calcAge() {
+    console.log(2025 - this.birthYear);
   },
-  set latest(mov) {
-    this.movements.push(mov);
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
   },
 };
 
-console.log(account.latest);
-account.latest = 50;
-console.log(account.movements);
+const steven = Object.create(PersonProto);
+
+console.log(steven);

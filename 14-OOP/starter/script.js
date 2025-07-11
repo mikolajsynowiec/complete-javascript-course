@@ -209,36 +209,48 @@
 // 5) STATIC version of these4
 
 class Account {
+  locale = navigator.language;
+  bank = 'bankist';
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
 
     console.log(`Thanks for oppening an account, ${owner}`);
   }
 
-  deposit(val) {
-    this.movements.push(val);
+  //Public Methods
+
+  getMovements() {
+    return this.#movements;
   }
 
-  apprpveLoan(val) {
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  #apprpveLoan(val) {
     return true;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
-    if (this.apprpveLoan(val)) {
+    if (this.#apprpveLoan(val)) {
       this.deposit(val);
       console.log(`Loan Approved`);
     }
+    return this;
   }
 }
 const acc1 = new Account('Miko', 'USD', 1234);
-acc1.deposit(100);
-acc1.withdraw(100);
-console.log(acc1.movements);
+
+acc1.deposit(300).withdraw(100).withdraw(50).requestLoan(2500).withdraw(400);
+console.log(acc1);
